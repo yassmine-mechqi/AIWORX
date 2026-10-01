@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "@internal/adapter-postgres/*": ["./backend/node_modules/@prisma/orm-postgres/dist/adapter__*.d.mts"],
+      "@internal/target-postgres/*": ["./backend/node_modules/@prisma/orm-target-postgres/dist/target__*.d.mts"],
+      "@internal/sql-contract/*": ["./backend/node_modules/@prisma/orm-family-sql/dist/contract__*.d.mts"],
+      "@internal/contract/*": ["./backend/node_modules/@prisma/orm-framework/dist/contract__*.d.mts"]
+    }
+  },
+  "include": ["prisma/**/*.d.ts"]
+}
