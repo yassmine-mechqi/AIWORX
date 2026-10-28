@@ -1,0 +1,649 @@
+{
+  "Nav": {
+    "accueil": "Accueil",
+    "services": "Services",
+    "prestataires": "Prestataires",
+    "commentCaMarche": "Comment ça marche",
+    "realisations": "Réalisations",
+    "devenirPrestataire": "Devenir prestataire",
+    "seConnecter": "Se connecter"
+  },
+  "Hero": {
+    "titre1": "Des talents digitaux",
+    "titre2": "au service de",
+    "accent": "vos projets",
+    "description": "AIWORX vous connecte avec des prestataires qualifiés pour concrétiser vos projets digitaux, en toute confiance. Publiez votre besoin, comparez les offres et suivez votre mission de A à Z.",
+    "publier": "Publier un besoin",
+    "decouvrir": "Découvrir nos services",
+    "badge1": "Prestataires qualifiés",
+    "badge2": "Comparez les offres",
+    "badge3": "Mission suivie de A à Z"
+  },
+  "Services": {
+    "surtitre": "Nos services",
+    "titre": "Des solutions digitales adaptées à",
+    "titreAccent": "vos besoins",
+    "sousTitre": "Que vous soyez une entreprise, une startup ou une organisation, trouvez la solution idéale parmi nos services professionnels.",
+    "voirTout": "Voir tous les services",
+    "items": {
+      "sites-web-ecommerce": {
+        "nom": "Sites web & e-commerce",
+        "description": "Création, refonte et optimisation de sites web et boutiques en ligne."
+      },
+      "applications-logiciels": {
+        "nom": "Applications & logiciels",
+        "description": "Développement d'applications web, mobiles et outils métiers."
+      },
+      "marketing-digital": {
+        "nom": "Marketing digital",
+        "description": "Stratégie, acquisition, réseaux sociaux et contenu."
+      },
+      "design-contenu": {
+        "nom": "Design & contenu",
+        "description": "Identité visuelle, UI/UX, vidéos et rédaction."
+      },
+      "ia-automatisation": {
+        "nom": "IA & automatisation",
+        "description": "Des processus plus intelligents pour plus de performance."
+      },
+      "conseil-transformation": {
+        "nom": "Conseil & transformation",
+        "description": "Accompagnement stratégique et digitalisation des métiers."
+      }
+    }
+  },
+  "HowItWorks": {
+    "surtitre": "Comment ça marche ?",
+    "titre": "Un parcours simple et sécurisé pour concrétiser",
+    "titreAccent": "vos projets",
+    "sousTitre": "AIWORX simplifie la mise en relation entre entreprises et prestataires, tout en garantissant un cadre sécurisé et transparent.",
+    "enSavoirPlus": "En savoir plus",
+    "etapes": {
+      "publier": {
+        "titre": "Publiez votre besoin",
+        "texte": "Décrivez votre projet et vos attentes en quelques minutes."
+      },
+      "offres": {
+        "titre": "Recevez des offres",
+        "texte": "Des prestataires qualifiés vous proposent leurs solutions."
+      },
+      "choisir": {
+        "titre": "Choisissez et lancez",
+        "texte": "Comparez, échangez et sélectionnez le meilleur profil."
+      },
+      "suivre": {
+        "titre": "Suivez et validez",
+        "texte": "Pilotez votre projet jusqu'à la réception des livrables."
+      }
+    }
+  },
+  "ServicesPage": {
+    "surtitre": "Nos services",
+    "titre": "Des solutions digitales adaptées à",
+    "titreAccent": "vos besoins",
+    "sousTitre": "Six catégories de services, des prestataires vérifiés et un contrôle qualité AIWORX sur chaque livraison.",
+    "demander": "Ce que vous pouvez demander",
+    "controle": "Contrôlé à chaque livraison",
+    "controleNote": "Avant tout paiement au prestataire, AIWORX vérifie la conformité au cahier des charges.",
+    "publier": "Publier un besoin",
+    "categories": {
+      "sites-web-ecommerce": {
+        "sousServices": [
+          "Site vitrine",
+          "Catalogue",
+          "Réservation",
+          "E-commerce",
+          "Refonte",
+          "Optimisation"
+        ],
+        "controles": [
+          "Responsive",
+          "Fonctionnalités",
+          "Contenus",
+          "Performance",
+          "SEO",
+          "Sécurité",
+          "Analytics",
+          "Conformité et transfert"
+        ]
+      },
+      "applications-logiciels": {
+        "sousServices": [
+          "Application web",
+          "Application mobile",
+          "Outil métier",
+          "CRM",
+          "ERP",
+          "Solution sur mesure"
+        ],
+        "controles": [
+          "Parcours utilisateur",
+          "Règles métier",
+          "Permissions",
+          "Données",
+          "Gestion des erreurs",
+          "Tests",
+          "Sécurité et performance",
+          "Déploiement et documentation"
+        ]
+      },
+      "marketing-digital": {
+        "sousServices": [
+          "Stratégie",
+          "Publicité",
+          "Acquisition",
+          "Contenu",
+          "SEO",
+          "Analytics"
+        ],
+        "controles": [
+          "Stratégie",
+          "Ciblage",
+          "Suivi (tracking)",
+          "Créations",
+          "Paramétrage",
+          "Budget et résultats",
+          "Transparence",
+          "Restitution des accès"
+        ]
+      },
+      "design-contenu": {
+        "sousServices": [
+          "Identité visuelle",
+          "UI/UX",
+          "Visuels",
+          "Vidéo",
+          "Photographie",
+          "Supports commerciaux"
+        ],
+        "controles": [
+          "Respect du brief",
+          "Formats",
+          "Cohérence",
+          "Lisibilité",
+          "Droits d'utilisation",
+          "Fichiers sources",
+          "Déclinaisons",
+          "Conformité de marque"
+        ]
+      },
+      "ia-automatisation": {
+        "sousServices": [
+          "Automatisation",
+          "Assistants",
+          "Intégrations",
+          "Audit",
+          "Cas d'usage IA"
+        ],
+        "controles": [
+          "Cas d'usage",
+          "Précision",
+          "Garde-fous",
+          "Données",
+          "Gestion des erreurs",
+          "Coûts",
+          "Sécurité",
+          "Supervision et documentation"
+        ]
+      },
+      "conseil-transformation": {
+        "sousServices": [
+          "Diagnostic",
+          "Cadrage",
+          "Organisation",
+          "Feuille de route digitale"
+        ],
+        "controles": [
+          "Méthode",
+          "Diagnostic",
+          "Preuves",
+          "Recommandations",
+          "Priorisation",
+          "Faisabilité",
+          "Plan d'action",
+          "Transfert"
+        ]
+      }
+    },
+    "garanties": {
+      "surtitre": "Notre cadre",
+      "titre": "Un service encadré",
+      "titreAccent": "de A à Z",
+      "items": {
+        "verifies": {
+          "titre": "Prestataires vérifiés",
+          "texte": "Identité, documents, références et tests de compétences contrôlés avant l'accès aux missions."
+        },
+        "besoin": {
+          "titre": "Besoin bien défini",
+          "texte": "Votre besoin est structuré en cahier des charges, validé par vous avant la consultation."
+        },
+        "qualite": {
+          "titre": "Contrôle qualité",
+          "texte": "Chaque livrable est comparé au cahier des charges par AIWORX avant validation."
+        },
+        "paiement": {
+          "titre": "Paiement encadré",
+          "texte": "Le paiement est lié à la validation du projet, avec médiation en cas de désaccord."
+        }
+      }
+    },
+    "demarrer": {
+      "surtitre": "Démarrer",
+      "titre": "Trois façons de",
+      "titreAccent": "lancer votre projet",
+      "items": {
+        "publier": {
+          "titre": "Publier votre besoin",
+          "texte": "Décrivez votre projet avec un formulaire guidé. Des prestataires qualifiés vous envoient leurs offres."
+        },
+        "accompagne": {
+          "titre": "Être accompagné",
+          "texte": "Un conseiller AIWORX vous aide à qualifier votre besoin et vous recommande des prestataires adaptés."
+        },
+        "profil": {
+          "titre": "Choisir un profil",
+          "texte": "Parcourez les prestataires vérifiés et demandez une proposition directement via la plateforme."
+        }
+      }
+    },
+    "cta": {
+      "titre": "Prêt à lancer votre projet ?",
+      "titreAccent": "Décrivez votre besoin.",
+      "texte": "Publiez-le en quelques minutes et recevez des offres de prestataires qualifiés.",
+      "publier": "Publier un besoin",
+      "prestataire": "Devenir prestataire"
+    }
+  },
+  "PublishNeed": {
+    "badge": "Publier un besoin",
+    "title": "Décrivez votre projet, recevez des offres de <b>prestataires qualifiés</b>",
+    "lead": "Votre besoin est qualifié par AIWORX avant d'être transmis aux prestataires adaptés. Votre brouillon est enregistré automatiquement.",
+    "stepLabel": "Étape {n} sur {total} · {title}",
+    "draftSaved": "Brouillon enregistré",
+    "draftBanner": "Vous avez un brouillon en cours ({title}).",
+    "untitled": "sans titre",
+    "resume": "Reprendre",
+    "restart": "Recommencer",
+    "optional": "facultatif",
+    "nav": {
+      "back": "Retour",
+      "next": "Continuer",
+      "send": "Envoyer mon besoin",
+      "sending": "Envoi en cours…"
+    },
+    "steps": {
+      "contexte": "Contexte",
+      "objectifs": "Objectifs",
+      "service": "Service",
+      "perimetre": "Périmètre",
+      "livrables": "Livrables",
+      "contraintes": "Contraintes",
+      "budget": "Budget",
+      "pieces": "Pièces jointes",
+      "libre": "Description",
+      "validation": "Validation"
+    },
+    "mode": {
+      "title": "Comment voulez-vous démarrer ?",
+      "hint": "Choisissez la voie qui vous convient. Vous pourrez toujours compléter votre besoin ensuite.",
+      "recommended": "Recommandé",
+      "soon": "Bientôt",
+      "guide": {
+        "t": "Formulaire guidé",
+        "d": "{n} étapes selon votre catégorie de service pour un dossier complet."
+      },
+      "libre": {
+        "t": "Description libre",
+        "d": "Racontez votre projet avec vos mots et joignez vos fichiers."
+      },
+      "import": {
+        "t": "Importer un cahier des charges",
+        "d": "Vous avez déjà un document ? Importez-le, nous le qualifions."
+      },
+      "conseiller": {
+        "t": "Être accompagné",
+        "d": "Un conseiller AIWORX qualifie votre besoin avec vous."
+      },
+      "smart": {
+        "t": "Questionnaire intelligent",
+        "d": "Des questions qui s'adaptent à vos réponses."
+      }
+    },
+    "contexte": {
+      "title": "Contexte",
+      "hint": "Présentez votre entreprise et la situation de départ.",
+      "titre": "Titre du projet",
+      "titreP": "Ex. : Boutique en ligne pour ma marque de cosmétiques",
+      "ent": "Entreprise",
+      "entP": "Nom de votre entreprise",
+      "prob": "Problème ou situation actuelle",
+      "probP": "Qu'est-ce qui vous amène à lancer ce projet ? Qu'existe-t-il aujourd'hui ?",
+      "users": "Utilisateurs concernés",
+      "usersP": "Ex. : clients, équipe commerciale, partenaires…",
+      "cible": "Public cible",
+      "cibleP": "Ex. : particuliers, PME, équipe interne…"
+    },
+    "objectifs": {
+      "title": "Objectifs",
+      "hint": "Qu'attendez-vous concrètement de ce projet ?",
+      "res": "Résultats attendus",
+      "resP": "Ex. : vendre en ligne dès le lancement, automatiser le suivi des commandes…",
+      "kpi": "Indicateurs de réussite",
+      "kpiP": "Ex. : 100 commandes par mois, -30 % de temps de traitement",
+      "prio": "Priorité",
+      "urg": "Urgence",
+      "prios": {
+        "high": "Haute",
+        "medium": "Moyenne",
+        "low": "Basse"
+      },
+      "urgs": {
+        "immediate": "Immédiate",
+        "month": "Dans le mois",
+        "quarter": "Dans le trimestre",
+        "flexible": "Flexible"
+      }
+    },
+    "service": {
+      "title": "Quel service recherchez-vous ?",
+      "hint": "Choisissez la catégorie, puis précisez ce dont vous avez besoin.",
+      "subs": "Prestations souhaitées",
+      "subsHint": "une ou plusieurs",
+      "modelTitle": "Type de service",
+      "models": {
+        "predefined": {
+          "t": "Prédéfini",
+          "d": "Périmètre et prix standards, avec des options."
+        },
+        "configurable": {
+          "t": "Configurable",
+          "d": "Une base standard que vous adaptez."
+        },
+        "custom": {
+          "t": "Sur mesure",
+          "d": "Un projet entièrement spécifique."
+        }
+      }
+    },
+    "cats": {
+      "sites": {
+        "name": "Sites web & e-commerce",
+        "subs": {
+          "vitrine": "Site vitrine",
+          "catalogue": "Catalogue",
+          "reservation": "Réservation",
+          "ecommerce": "E-commerce",
+          "refonte": "Refonte",
+          "optimisation": "Optimisation"
+        },
+        "liv": {
+          "mockups": "Maquettes validées",
+          "siteLive": "Site développé et mis en ligne",
+          "content": "Contenus intégrés",
+          "seo": "Paramétrage SEO de base",
+          "sources": "Accès et fichiers sources",
+          "docs": "Documentation et formation"
+        }
+      },
+      "apps": {
+        "name": "Applications & logiciels",
+        "subs": {
+          "webapp": "Application web",
+          "mobile": "Application mobile",
+          "business": "Outil métier",
+          "crm": "CRM",
+          "erp": "ERP",
+          "custom": "Solution sur mesure"
+        },
+        "liv": {
+          "specs": "Spécifications fonctionnelles",
+          "app": "Application développée",
+          "tests": "Tests et recette",
+          "deploy": "Déploiement en production",
+          "code": "Code source et accès",
+          "docs": "Documentation technique et utilisateur"
+        }
+      },
+      "mkt": {
+        "name": "Marketing digital",
+        "subs": {
+          "strategy": "Stratégie",
+          "ads": "Publicité",
+          "acquisition": "Acquisition",
+          "content": "Contenu",
+          "seo": "SEO",
+          "analytics": "Analytics"
+        },
+        "liv": {
+          "plan": "Stratégie et plan d'action",
+          "campaigns": "Création des campagnes",
+          "tracking": "Paramétrage du suivi (tracking)",
+          "report": "Rapport de résultats",
+          "accounts": "Restitution des accès aux comptes"
+        }
+      },
+      "design": {
+        "name": "Design & contenu",
+        "subs": {
+          "identity": "Identité visuelle",
+          "uiux": "UI/UX",
+          "visuals": "Visuels",
+          "video": "Vidéo",
+          "photo": "Photographie",
+          "sales": "Supports commerciaux"
+        },
+        "liv": {
+          "brief": "Brief créatif validé",
+          "concepts": "Propositions de pistes",
+          "finals": "Livrables finaux aux formats demandés",
+          "sources": "Fichiers sources",
+          "variants": "Déclinaisons",
+          "guide": "Guide d'usage"
+        }
+      },
+      "ia": {
+        "name": "IA & automatisation",
+        "subs": {
+          "automation": "Automatisation",
+          "assistants": "Assistants",
+          "integrations": "Intégrations",
+          "audit": "Audit",
+          "usecases": "Cas d'usage IA"
+        },
+        "liv": {
+          "framing": "Cadrage du cas d'usage",
+          "poc": "Prototype ou preuve de concept",
+          "production": "Solution en production",
+          "tests": "Jeux de tests et mesure de précision",
+          "docs": "Documentation et supervision"
+        }
+      },
+      "conseil": {
+        "name": "Conseil & transformation",
+        "subs": {
+          "diagnostic": "Diagnostic",
+          "framing": "Cadrage",
+          "organisation": "Organisation",
+          "roadmap": "Feuille de route digitale"
+        },
+        "liv": {
+          "diagnostic": "Diagnostic de l'existant",
+          "recos": "Recommandations priorisées",
+          "plan": "Plan d'action",
+          "presentation": "Présentation de restitution",
+          "handover": "Document de transfert"
+        }
+      }
+    },
+    "perimetre": {
+      "title": "Périmètre",
+      "hint": "Ce qui est inclus, ce qui ne l'est pas, et ce dont le projet dépend.",
+      "fonc": "Fonctions incluses",
+      "foncP": "Listez les fonctionnalités ou prestations attendues.",
+      "excl": "Exclusions",
+      "exclP": "Ce qui ne doit pas être inclus dans le projet.",
+      "integ": "Intégrations",
+      "integP": "Ex. : paiement, CRM, ERP…",
+      "dep": "Dépendances",
+      "depP": "Ex. : contenus fournis par le client"
+    },
+    "livrables": {
+      "title": "Livrables attendus",
+      "hint": "Sélectionnez des modèles AIWORX, puis modifiez-les ou ajoutez les vôtres.",
+      "templates": "Modèles proposés",
+      "pickCat": "Choisissez d'abord une catégorie de service.",
+      "item": "Livrable {n}",
+      "remove": "Supprimer",
+      "addP": "Ajouter un livrable…",
+      "add": "Ajouter",
+      "crit": "Critères d’acceptation",
+      "critP": "Comment vérifier que le résultat répond au besoin ?"
+    },
+    "constraints": {
+      "title": "Contraintes",
+      "hint": "Délais, langues, technologie, marque, conformité et confidentialité.",
+      "date": "Date de livraison souhaitée",
+      "langs": "Langues du projet",
+      "langNames": {
+        "fr": "Français",
+        "en": "Anglais",
+        "ar": "Arabe"
+      },
+      "tech": "Technologie imposée",
+      "techP": "Ex. : WordPress, Next.js…",
+      "brand": "Charte / marque",
+      "brandP": "Ex. : charte graphique existante",
+      "conf": "Conformité",
+      "confP": "Ex. : protection des données, normes sectorielles",
+      "confidLabel": "Niveau de confidentialité",
+      "confid": {
+        "standard": {
+          "long": "Standard",
+          "short": "Standard"
+        },
+        "high": {
+          "long": "Élevé : engagement de confidentialité requis avant accès au dossier",
+          "short": "Élevée (engagement requis)"
+        }
+      }
+    },
+    "budget": {
+      "title": "Budget",
+      "hint": "Une fourchette réaliste aide les prestataires à vous répondre avec des offres adaptées.",
+      "currency": "Devise",
+      "min": "Minimum",
+      "max": "Maximum",
+      "show": "Afficher ce budget aux prestataires invités. Sans cela, seul AIWORX le verra."
+    },
+    "pieces": {
+      "title": "Pièces jointes",
+      "titleImport": "Importez votre cahier des charges",
+      "hint": "Documents, exemples et médias utiles pour comprendre votre besoin.",
+      "hintImport": "Ajoutez votre document. Nous le qualifierons avec vous.",
+      "drop": "Cliquez pour ajouter des fichiers",
+      "formats": "PDF, Word, images, vidéos… ({max} Mo maximum par fichier)",
+      "errType": "Le format du fichier « {name} » n'est pas accepté.",
+      "errSize": "Le fichier « {name} » dépasse {max} Mo.",
+      "errCount": "Vous pouvez ajouter {max} fichiers au maximum.",
+      "rights": "Qui peut consulter ces fichiers ?",
+      "rightsOpts": {
+        "invited": "Prestataires invités",
+        "selected": "Uniquement le prestataire sélectionné",
+        "nda": "Prestataires invités ayant signé l'engagement de confidentialité"
+      }
+    },
+    "libre": {
+      "title": "Décrivez votre besoin",
+      "hint": "Écrivez avec vos mots. Un conseiller AIWORX vous aidera à structurer le reste.",
+      "hintAdvisor": "Quelques lignes suffisent : un conseiller vous contactera pour affiner votre besoin.",
+      "titreP": "Ex. : Application de suivi des livraisons",
+      "desc": "Description",
+      "descP": "Contexte, objectifs, fonctionnalités, contraintes… tout ce qui est utile.",
+      "contact": "Moyen de contact préféré",
+      "slot": "Créneau préféré",
+      "contacts": {
+        "email": "E-mail",
+        "phone": "Téléphone",
+        "whatsapp": "WhatsApp"
+      },
+      "slots": {
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soir"
+      }
+    },
+    "validation": {
+      "title": "Validation",
+      "hint": "Relisez le récapitulatif avant d'envoyer votre besoin.",
+      "pubTitle": "Comment souhaitez-vous publier ?",
+      "pubs": {
+        "autonomous": {
+          "t": "Publication autonome",
+          "d": "Votre besoin est diffusé aux prestataires éligibles."
+        },
+        "qualification": {
+          "t": "Avec qualification AIWORX",
+          "d": "Un conseiller affine votre besoin avant diffusion."
+        }
+      },
+      "forced": "Votre besoin sera pris en charge par un conseiller AIWORX avant toute diffusion.",
+      "exact": "Je certifie que les informations fournies sont exactes.",
+      "cgu": "J'accepte les conditions d'utilisation et la politique de confidentialité."
+    },
+    "recap": {
+      "project": "Projet",
+      "company": "Entreprise",
+      "service": "Service",
+      "subs": "Prestations",
+      "model": "Type de service",
+      "deliverables": "Livrables",
+      "planned": "{n} prévu(s)",
+      "date": "Livraison souhaitée",
+      "budget": "Budget",
+      "hidden": "masqué",
+      "confidentiality": "Confidentialité",
+      "files": "Pièces jointes",
+      "fileCount": "{n} fichier(s)",
+      "startMode": "Mode de démarrage",
+      "publication": "Publication",
+      "contact": "Contact souhaité"
+    },
+    "done": {
+      "title": "Votre besoin est bien reçu",
+      "ref": "Référence {ref}",
+      "version": "Version {v}",
+      "status": "Statut : Soumis",
+      "next1": "Un conseiller AIWORX qualifie votre besoin et peut vous demander des précisions.",
+      "next2": "Vous validez le cahier des charges avant toute consultation.",
+      "next3": "Les prestataires vérifiés vous envoient leurs offres."
+    },
+    "side": {
+      "progress": "Votre progression",
+      "next": "Ce qui se passe ensuite",
+      "n1": "AIWORX qualifie votre besoin et le structure en cahier des charges.",
+      "n2": "Des prestataires vérifiés vous envoient leurs offres.",
+      "n3": "Votre identité reste masquée avant l'étape autorisée."
+    },
+    "errors": {
+      "titre": "Ajoutez un titre (3 caractères minimum).",
+      "prob": "Décrivez la situation (20 caractères minimum).",
+      "res": "Indiquez les résultats attendus (10 caractères minimum).",
+      "fonc": "Précisez le périmètre (10 caractères minimum).",
+      "libre": "Décrivez votre besoin (30 caractères minimum).",
+      "date": "Choisissez une date à venir.",
+      "bmin": "Indiquez un montant.",
+      "bmax": "Doit être supérieur au minimum.",
+      "required": "Ce champ est obligatoire.",
+      "cat": "Veuillez choisir une catégorie.",
+      "sub": "Sélectionnez au moins une prestation.",
+      "modele": "Choisissez un type de service.",
+      "liv": "Ajoutez au moins un livrable.",
+      "files": "Importez au moins un document.",
+      "exact": "Veuillez confirmer.",
+      "cgu": "Veuillez accepter pour continuer.",
+      "send": "L'envoi a échoué. Vérifiez votre connexion et réessayez.",
+      "crit": "Précisez les critères d’acceptation (10 caractères minimum)."
+    }
+  }
+}

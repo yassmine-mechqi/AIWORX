@@ -1,14 +1,13 @@
+import Hero from "../components/Hero";
+import ServicesSection from "../components/ServicesSection";
+import HowItWorks from "../components/HowItWorks";
+
 export default function Home() {
   return (
     <main>
-      <h1>Bienvenue sur AIWORX</h1>
-      <p>
-        La plateforme qui transforme vos besoins digitaux
-        en projets réussis.
-      </p>
-
-      <button>Publier un besoin</button>
-      <button>Découvrir les prestataires</button>
+      <Hero />
+      <ServicesSection />
+      <HowItWorks />
     </main>
   );
 }
