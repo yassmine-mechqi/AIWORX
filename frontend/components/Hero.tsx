@@ -42,7 +42,7 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
-              href="/publier"
+              href="/publier-un-besoin"
               className="flex items-center gap-4 rounded-full bg-white py-2 pl-7 pr-2 font-semibold text-[#0B1B3A] shadow-lg transition hover:scale-[1.03]"
             >
               {t("publier")}

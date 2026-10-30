@@ -54,7 +54,7 @@ export default function ServicesSection() {
           {categories.map(({ slug, Icone }) => (
             <Link
               key={slug}
-              href={`/services/${slug}`}
+              href={`/services#${slug}`}
               className="group flex min-h-[270px] flex-col rounded-[26px] border border-[#E3ECEA] bg-white p-8
                          shadow-[0_1px_2px_rgba(11,27,58,.04),0_10px_30px_rgba(11,27,58,.05)]
                          transition-all duration-300

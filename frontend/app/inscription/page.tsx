@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import AuthPage from "@/components/auth/AuthPage";
+import SignupChoicePage from "@/components/auth/SignupChoicePage";
 import "../auth.css";
 
 export const metadata: Metadata = {
   title: "Créer un compte | AIWORX",
-  description: "Créez votre compte AIWORX pour gérer vos projets digitaux.",
+  description: "Choisissez un compte entreprise ou prestataire sur AIWORX.",
 };
 
 export default function InscriptionPage() {
-  return <AuthPage mode="register" />;
+  return <SignupChoicePage />;
 }

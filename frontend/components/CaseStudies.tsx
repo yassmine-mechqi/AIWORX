@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUpRight, Check, Code2, ExternalLink, Monitor, Palette, Search, X, ShoppingBag, Smartphone, Shapes } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ExternalLink, Monitor, Search, X, ShoppingBag, Smartphone, Shapes } from "lucide-react";
 
 const studies = [
   { id: "commerce", category: "web", icon: "shop", title: "Expérience e-commerce", titleEn: "E-commerce experience", service: "Sites web & e-commerce", serviceEn: "Websites & e-commerce", summary: "Un aperçu de boutique en ligne : parcours de découverte, catalogue et présentation des produits.", summaryEn: "An online store concept: product discovery, catalogue and product presentation.", deliverables: ["Parcours d’achat", "Catalogue produit", "Interface responsive"], deliverablesEn: ["Shopping journey", "Product catalogue", "Responsive interface"] },
@@ -18,6 +18,13 @@ const filters = [
   { id: "apps", fr: "Applications", en: "Applications" },
   { id: "design", fr: "Design", en: "Design" },
 ];
+
+function ArtIcon({ icon, size = 42 }: { icon: string; size?: number }) {
+  if (icon === "shop") return <ShoppingBag size={size} />;
+  if (icon === "mobile") return <Smartphone size={size} />;
+  if (icon === "shapes") return <Shapes size={size} />;
+  return <Monitor size={size} />;
+}
 
 export default function CaseStudies() {
   const en = useLocale() === "en";
@@ -34,7 +41,6 @@ export default function CaseStudies() {
     return studies.filter((study) => (filter === "all" || study.category === filter) && (!q || [study.title, study.titleEn, study.service, study.serviceEn, study.summary, study.summaryEn].join(" ").toLocaleLowerCase(en ? "en" : "fr").includes(q)));
   }, [filter, query, en]);
   const label = (study: (typeof studies)[number]) => en ? study.serviceEn : study.service;
-  const ArtIcon = ({ icon, size = 42 }: { icon: string; size?: number }) => icon === "shop" ? <ShoppingBag size={size} /> : icon === "mobile" ? <Smartphone size={size} /> : icon === "shapes" ? <Shapes size={size} /> : <Monitor size={size} />;
 
   return (
     <main className="cases-page">
