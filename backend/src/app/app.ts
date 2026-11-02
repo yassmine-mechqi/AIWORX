@@ -26,6 +26,7 @@ const authRateLimits: Record<string, { maxRequests: number; windowMs: number }> 
 export function buildApp() {
   const app = Fastify({
     logger: true,
+    trustProxy: process.env["VERCEL"] === "1",
     ajv: {
       customOptions: {
         removeAdditional: false,
