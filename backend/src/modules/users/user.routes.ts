@@ -12,9 +12,7 @@ updateUserProfile,
 
 import type { UpdateUserProfileInput } from "./user.types.js";
 
-import {
-verifyToken,
-} from "../auth/auth.service.js";
+import { getActiveUserFromToken } from "../auth/auth.service.js";
 
 const COOKIE_NAME = "aiworx_token";
 
@@ -42,28 +40,17 @@ return authorization
 .trim();
 }
 
-function getAuthenticatedUserId(
+async function getAuthenticatedUserId(
 request: FastifyRequest,
-): string | null {
+): Promise<string | null> {
 const token = getTokenFromRequest(request);
 
 if (!token) {
 return null;
 }
 
-try {
-const payload = verifyToken(token);
-
-if (!payload.sub) {
-  return null;
-}
-
-return payload.sub;
-
-
-} catch {
-return null;
-}
+const user = await getActiveUserFromToken(token);
+return user?.id ?? null;
 }
 
 export async function userRoutes(
@@ -75,7 +62,7 @@ async (
 request: FastifyRequest,
 reply: FastifyReply,
 ) => {
-const userId = getAuthenticatedUserId(request);
+const userId = await getAuthenticatedUserId(request);
 
 
   if (!userId) {
@@ -111,7 +98,7 @@ Body: UpdateUserProfileInput;
 }>,
 reply: FastifyReply,
 ) => {
-const userId = getAuthenticatedUserId(request);
+const userId = await getAuthenticatedUserId(request);
 
 
   if (!userId) {
@@ -177,7 +164,7 @@ async (
 request: FastifyRequest,
 reply: FastifyReply,
 ) => {
-const userId = getAuthenticatedUserId(request);
+const userId = await getAuthenticatedUserId(request);
 
 
   if (!userId) {

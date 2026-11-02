@@ -27,4 +27,5 @@ export type AuthUser = {
 export type AuthTokenPayload = {
   sub: string;
   email: string;
+  sessionVersion?: number;
 };

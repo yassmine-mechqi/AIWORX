@@ -27,6 +27,7 @@ enum RoleName {
   QUALITY_EXPERT
   FINANCE_ADMIN
   ADMIN
+  SUPERADMIN
 }
 
 enum ProviderVerificationStatus {
@@ -65,13 +66,18 @@ model User {
   status                 UserStatus               @default(PENDING)
 
   emailVerifiedAt        DateTime?
+  emailVerificationTokenHash String?
+  emailVerificationExpiresAt DateTime?
+  passwordResetTokenHash String?
+  passwordResetExpiresAt DateTime?
+  sessionVersion         Int                      @default(0)
   lastLoginAt            DateTime?
 
   createdAt              DateTime                 @default(now())
-  updatedAt              DateTime                 @updatedAt
+  updatedAt              temporal.updatedAt()
 
   // Relations
-  ownedOrganizations     Organization[]           @relation("OrganizationOwner")
+  ownedOrganizations Organization[] @relation("OrganizationOwner")
 
   memberships            OrganizationMembership[]
 
@@ -109,7 +115,7 @@ model Organization {
   ownerId          String
 
   createdAt        DateTime                 @default(now())
-  updatedAt        DateTime                 @updatedAt
+  updatedAt        temporal.updatedAt()
 
   // Relations
   owner            User                     @relation("OrganizationOwner", fields:[ownerId], references:[id])
@@ -137,7 +143,7 @@ model OrganizationMembership {
   leftAt         DateTime?
 
   createdAt      DateTime             @default(now())
-  updatedAt      DateTime             @updatedAt
+  updatedAt      temporal.updatedAt()
 
   // Relations
   user           User                 @relation(fields:[userId], references:[id], onDelete: Cascade)
@@ -159,7 +165,7 @@ model Role {
   description String?
 
   createdAt   DateTime             @default(now())
-  updatedAt   DateTime             @updatedAt
+  updatedAt   temporal.updatedAt()
 
   // Relations
   assignments RoleAssignment[]
@@ -179,7 +185,7 @@ model Permission {
   createdById String?
 
   createdAt   DateTime             @default(now())
-  updatedAt   DateTime             @updatedAt
+  updatedAt   temporal.updatedAt()
 
   // Relations
   createdBy   User?                @relation("PermissionCreator", fields:[createdById], references:[id])
@@ -204,7 +210,7 @@ model RoleAssignment {
   isActive       Boolean              @default(true)
 
   createdAt      DateTime             @default(now())
-  updatedAt      DateTime             @updatedAt
+  updatedAt      temporal.updatedAt()
 
   // Relations
   user           User                 @relation("UserRoleAssignments", fields:[userId], references:[id], onDelete: Cascade)
@@ -275,7 +281,7 @@ model ProviderProfile {
   isAvailable     Boolean                @default(true)
 
   createdAt       DateTime               @default(now())
-  updatedAt       DateTime               @updatedAt
+  updatedAt       temporal.updatedAt()
 
   // Relations
   user            User                   @relation(fields:[userId], references:[id], onDelete: Cascade)
@@ -313,7 +319,7 @@ model ProviderVerification {
   expiresAt         DateTime?
 
   createdAt         DateTime                   @default(now())
-  updatedAt         DateTime                   @updatedAt
+  updatedAt         temporal.updatedAt()
 
   // Relations
   providerProfile   ProviderProfile            @relation(fields:[providerProfileId], references:[id], onDelete: Cascade)
@@ -365,7 +371,7 @@ model ProjectRequest {
   archivedAt         DateTime?
 
   createdAt          DateTime             @default(now())
-  updatedAt          DateTime               @updatedAt
+  updatedAt          temporal.updatedAt()
 
   // Relations
   client             User                 @relation("ProjectClient", fields:[clientId], references:[id])

@@ -4,7 +4,8 @@ export type RoleName =
   | "ADVISOR"
   | "QUALITY_EXPERT"
   | "FINANCE_ADMIN"
-  | "ADMIN";
+  | "ADMIN"
+  | "SUPERADMIN";
 
 export interface Role {
   id: string;

@@ -170,6 +170,10 @@
               {
                 "name": "ADMIN",
                 "value": "ADMIN"
+              },
+              {
+                "name": "SUPERADMIN",
+                "value": "SUPERADMIN"
               }
             ]
           },
@@ -236,7 +240,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -257,7 +261,7 @@
               "ownerId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -432,7 +436,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -460,7 +464,7 @@
               "organizationId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -474,7 +478,7 @@
               "userId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               }
@@ -563,7 +567,7 @@
               "createdById": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -577,7 +581,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -694,7 +698,7 @@
               "clientId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -722,7 +726,7 @@
               "deliverables": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -736,14 +740,14 @@
               "documents": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -757,14 +761,14 @@
               "organizationId": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "providerId": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -785,7 +789,7 @@
               "requirements": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -992,7 +996,7 @@
               "categories": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -1048,7 +1052,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1062,14 +1066,14 @@
               "organizationId": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "portfolio": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -1083,14 +1087,14 @@
               "sectors": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
               "skills": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -1104,7 +1108,7 @@
               "userId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1266,7 +1270,7 @@
               "documents": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -1280,14 +1284,14 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "providerProfileId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1308,7 +1312,7 @@
               "reviewedById": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1335,7 +1339,7 @@
               "testResults": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/jsonb@1",
+                  "codecId": "pg/json@1",
                   "kind": "scalar"
                 }
               },
@@ -1446,7 +1450,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1537,14 +1541,14 @@
               "createdById": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1558,14 +1562,14 @@
               "organizationId": {
                 "nullable": true,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "roleId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -1579,7 +1583,7 @@
               "userId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               }
@@ -1693,21 +1697,21 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "permissionId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
               "roleId": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               }
@@ -1798,7 +1802,7 @@
               "id": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/uuid@1",
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -2062,8 +2066,8 @@
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "legalName": {
@@ -2077,8 +2081,8 @@
                   "nullable": false
                 },
                 "ownerId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "postalCode": {
@@ -2159,8 +2163,8 @@
                   "nullable": false
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "isActive": {
@@ -2187,8 +2191,8 @@
                   "nullable": true
                 },
                 "organizationId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "updatedAt": {
@@ -2197,8 +2201,8 @@
                   "nullable": false
                 },
                 "userId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 }
               },
@@ -2287,8 +2291,8 @@
                   "nullable": false
                 },
                 "createdById": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "description": {
@@ -2297,8 +2301,8 @@
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "updatedAt": {
@@ -2388,8 +2392,8 @@
                   "nullable": true
                 },
                 "clientId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "createdAt": {
@@ -2416,8 +2420,8 @@
                   "nullable": true
                 },
                 "deliverables": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "description": {
@@ -2426,13 +2430,13 @@
                   "nullable": true
                 },
                 "documents": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "isConfidential": {
@@ -2445,13 +2449,13 @@
                   "nullable": false
                 },
                 "organizationId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "providerId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "publicationVersion": {
@@ -2469,8 +2473,8 @@
                   "nullable": true
                 },
                 "requirements": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "startDate": {
@@ -2634,8 +2638,8 @@
                   "nullable": true
                 },
                 "categories": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "city": {
@@ -2682,8 +2686,8 @@
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "isAvailable": {
@@ -2696,13 +2700,13 @@
                   "nullable": false
                 },
                 "organizationId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "portfolio": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "score": {
@@ -2711,13 +2715,13 @@
                   "nullable": true
                 },
                 "sectors": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "skills": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "updatedAt": {
@@ -2726,8 +2730,8 @@
                   "nullable": false
                 },
                 "userId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "yearsExperience": {
@@ -2826,8 +2830,8 @@
                   "nullable": false
                 },
                 "documents": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "expiresAt": {
@@ -2836,13 +2840,13 @@
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "providerProfileId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "rejectionReason": {
@@ -2856,8 +2860,8 @@
                   "nullable": true
                 },
                 "reviewedById": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "status": {
@@ -2881,8 +2885,8 @@
                   "nullable": true
                 },
                 "testResults": {
-                  "codecId": "pg/jsonb@1",
-                  "nativeType": "jsonb",
+                  "codecId": "pg/json@1",
+                  "nativeType": "json",
                   "nullable": true
                 },
                 "updatedAt": {
@@ -2962,8 +2966,8 @@
             "role": {
               "checks": [
                 {
-                  "expression": "\"name\" IN ('CLIENT', 'PROVIDER', 'ADVISOR', 'QUALITY_EXPERT', 'FINANCE_ADMIN', 'ADMIN')",
-                  "name": "role_name_check_e9d2492f",
+                  "expression": "\"name\" IN ('CLIENT', 'PROVIDER', 'ADVISOR', 'QUALITY_EXPERT', 'FINANCE_ADMIN', 'ADMIN', 'SUPERADMIN')",
+                  "name": "role_name_check_e185ff3d",
                   "prefix": "role_name_check"
                 }
               ],
@@ -2983,8 +2987,8 @@
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "name": {
@@ -3031,13 +3035,13 @@
                   "nullable": false
                 },
                 "createdById": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "isActive": {
@@ -3050,13 +3054,13 @@
                   "nullable": false
                 },
                 "organizationId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": true
                 },
                 "roleId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "updatedAt": {
@@ -3065,8 +3069,8 @@
                   "nullable": false
                 },
                 "userId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 }
               },
@@ -3200,18 +3204,18 @@
                   "nullable": false
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "permissionId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "roleId": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 }
               },
@@ -3317,8 +3321,8 @@
                   "nullable": false
                 },
                 "id": {
-                  "codecId": "pg/uuid@1",
-                  "nativeType": "uuid",
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
                   "nullable": false
                 },
                 "lastLoginAt": {
@@ -3422,7 +3426,8 @@
                 "ADVISOR",
                 "QUALITY_EXPERT",
                 "FINANCE_ADMIN",
-                "ADMIN"
+                "ADMIN",
+                "SUPERADMIN"
               ]
             },
             "UserStatus": {
@@ -3440,7 +3445,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "6492e103304b3ab78e2911af09998ff6b60133f5bd2837d368df733d3fd49ec7"
+    "storageHash": "4841a97bedc27eb6c375ad5dcaf2c30e91bcea4a27cef91127464ebe9a20b067"
   },
   "execution": {
     "executionHash": "aaac8e63dcd59791d5a6dd52bd34dc0cde01c0b9f9bf60cced780be6fedfbf2e",

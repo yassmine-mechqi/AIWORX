@@ -4,9 +4,7 @@ FastifyReply,
 FastifyRequest,
 } from "fastify";
 
-import {
-verifyToken,
-} from "../auth/auth.service.js";
+import { getActiveUserFromToken } from "../auth/auth.service.js";
 
 import {
 assignPermissionToRole,
@@ -17,6 +15,8 @@ getAllPermissions,
 getAllRoles,
 getPermissionsForRole,
 getRoleById,
+hasPlatformAdministratorRole,
+hasPlatformSuperadministratorRole,
 getUserPermissions,
 getUserRoles,
 } from "./role.service.js";
@@ -24,6 +24,7 @@ getUserRoles,
 import type {
 CreatePermissionInput,
 CreateRoleInput,
+RoleName,
 } from "./role.types.js";
 
 const COOKIE_NAME = "aiworx_token";
@@ -53,36 +54,25 @@ return authorization
 .trim();
 }
 
-function getAuthenticatedUserId(
+async function getAuthenticatedUserId(
 request: FastifyRequest,
-): string | null {
+): Promise<string | null> {
 const token = getTokenFromRequest(request);
 
 if (!token) {
 return null;
 }
 
-try {
-const payload = verifyToken(token);
-
-
-if (!payload.sub) {
-  return null;
+const user = await getActiveUserFromToken(token);
+return user?.id ?? null;
 }
 
-return payload.sub;
-
-} catch {
-return null;
-}
-}
-
-function requireAuthentication(
+async function requireAuthentication(
 request: FastifyRequest,
 reply: FastifyReply,
-): string | null {
+): Promise<string | null> {
 const userId =
-getAuthenticatedUserId(request);
+await getAuthenticatedUserId(request);
 
 if (!userId) {
 reply.code(401).send({
@@ -97,6 +87,112 @@ return null;
 }
 
 return userId;
+}
+
+async function requireAdministrator(
+  request: FastifyRequest,
+  reply: FastifyReply,
+): Promise<string | null> {
+  const userId = await requireAuthentication(request, reply);
+
+  if (!userId) {
+    return null;
+  }
+
+  try {
+    const isAdministrator = await hasPlatformAdministratorRole(userId);
+
+    if (!isAdministrator) {
+      reply.code(403).send({
+        success: false,
+        error: "FORBIDDEN",
+      });
+      return null;
+    }
+
+    return userId;
+  } catch (error) {
+    request.log.error(error);
+    reply.code(500).send({
+      success: false,
+      error: "AUTHORIZATION_CHECK_FAILED",
+    });
+    return null;
+  }
+}
+
+async function requireSuperadministrator(
+  request: FastifyRequest,
+  reply: FastifyReply,
+): Promise<string | null> {
+  const userId = await requireAuthentication(request, reply);
+
+  if (!userId) {
+    return null;
+  }
+
+  try {
+    const isSuperadministrator =
+      await hasPlatformSuperadministratorRole(userId);
+
+    if (!isSuperadministrator) {
+      reply.code(403).send({
+        success: false,
+        error: "SUPERADMIN_REQUIRED",
+      });
+      return null;
+    }
+
+    return userId;
+  } catch (error) {
+    request.log.error(error);
+    reply.code(500).send({
+      success: false,
+      error: "AUTHORIZATION_CHECK_FAILED",
+    });
+    return null;
+  }
+}
+
+function isElevatedRole(name: RoleName): boolean {
+  return name === "ADMIN" || name === "SUPERADMIN";
+}
+
+async function requireAdministratorOrSelf(
+  request: FastifyRequest,
+  reply: FastifyReply,
+  targetUserId: string,
+): Promise<string | null> {
+  const userId = await requireAuthentication(request, reply);
+
+  if (!userId) {
+    return null;
+  }
+
+  if (userId === targetUserId) {
+    return userId;
+  }
+
+  try {
+    const isAdministrator = await hasPlatformAdministratorRole(userId);
+
+    if (!isAdministrator) {
+      reply.code(403).send({
+        success: false,
+        error: "FORBIDDEN",
+      });
+      return null;
+    }
+
+    return userId;
+  } catch (error) {
+    request.log.error(error);
+    reply.code(500).send({
+      success: false,
+      error: "AUTHORIZATION_CHECK_FAILED",
+    });
+    return null;
+  }
 }
 
 export async function roleRoutes(
@@ -114,7 +210,7 @@ request,
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );
@@ -145,7 +241,7 @@ id: string;
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );
@@ -184,7 +280,7 @@ Body: CreateRoleInput;
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAdministrator(
 request,
 reply,
 );
@@ -192,6 +288,17 @@ reply,
 
   if (!userId) {
     return;
+  }
+
+  if (isElevatedRole(request.body.name)) {
+    const superadministratorId = await requireSuperadministrator(
+      request,
+      reply,
+    );
+
+    if (!superadministratorId) {
+      return;
+    }
   }
 
   try {
@@ -228,7 +335,7 @@ request,
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );
@@ -259,7 +366,7 @@ Body: CreatePermissionInput;
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAdministrator(
 request,
 reply,
 );
@@ -309,7 +416,7 @@ permissionId: string;
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAdministrator(
 request,
 reply,
 );
@@ -320,6 +427,26 @@ reply,
   }
 
   try {
+    const role = await getRoleById(request.params.roleId);
+
+    if (!role) {
+      return reply.code(404).send({
+        success: false,
+        error: "ROLE_NOT_FOUND",
+      });
+    }
+
+    if (isElevatedRole(role.name)) {
+      const superadministratorId = await requireSuperadministrator(
+        request,
+        reply,
+      );
+
+      if (!superadministratorId) {
+        return;
+      }
+    }
+
     await assignPermissionToRole(
       request.params.roleId,
       request.params.permissionId,
@@ -376,7 +503,7 @@ roleId: string;
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );
@@ -416,7 +543,7 @@ roleId: string;
 reply,
 ) => {
 const createdById =
-requireAuthentication(
+await requireAdministrator(
 request,
 reply,
 );
@@ -427,6 +554,26 @@ reply,
   }
 
   try {
+    const role = await getRoleById(request.params.roleId);
+
+    if (!role) {
+      return reply.code(404).send({
+        success: false,
+        error: "ROLE_NOT_FOUND",
+      });
+    }
+
+    if (isElevatedRole(role.name)) {
+      const superadministratorId = await requireSuperadministrator(
+        request,
+        reply,
+      );
+
+      if (!superadministratorId) {
+        return;
+      }
+    }
+
     const assignment =
       await assignRoleToUser(
         request.params.userId,
@@ -485,9 +632,10 @@ userId: string;
 reply,
 ) => {
 const currentUserId =
-requireAuthentication(
+await requireAdministratorOrSelf(
 request,
 reply,
+request.params.userId,
 );
 
 
@@ -520,9 +668,10 @@ userId: string;
 reply,
 ) => {
 const currentUserId =
-requireAuthentication(
+await requireAdministratorOrSelf(
 request,
 reply,
+request.params.userId,
 );
 
 
@@ -555,7 +704,7 @@ request,
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );
@@ -583,7 +732,7 @@ request,
 reply,
 ) => {
 const userId =
-requireAuthentication(
+await requireAuthentication(
 request,
 reply,
 );

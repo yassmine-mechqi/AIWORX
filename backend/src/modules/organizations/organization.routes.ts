@@ -16,7 +16,7 @@ import type {
   UpdateOrganizationInput,
 } from "./organization.types.js";
 
-import { verifyToken } from "../auth/auth.service.js";
+import { getActiveUserFromToken } from "../auth/auth.service.js";
 
 const COOKIE_NAME = "aiworx_token";
 
@@ -40,22 +40,17 @@ function getTokenFromRequest(
     .trim();
 }
 
-function getAuthenticatedUserId(
+async function getAuthenticatedUserId(
   request: FastifyRequest,
-): string | null {
+): Promise<string | null> {
   const token = getTokenFromRequest(request);
 
   if (!token) {
     return null;
   }
 
-  try {
-    const payload = verifyToken(token);
-
-    return payload.sub ?? null;
-  } catch {
-    return null;
-  }
+  const user = await getActiveUserFromToken(token);
+  return user?.id ?? null;
 }
 
 export async function organizationRoutes(
@@ -68,7 +63,7 @@ export async function organizationRoutes(
       request: FastifyRequest,
       reply: FastifyReply,
     ) => {
-      const userId = getAuthenticatedUserId(request);
+      const userId = await getAuthenticatedUserId(request);
 
       if (!userId) {
         return reply.code(401).send({
@@ -107,7 +102,7 @@ export async function organizationRoutes(
       }>,
       reply: FastifyReply,
     ) => {
-      const userId = getAuthenticatedUserId(request);
+      const userId = await getAuthenticatedUserId(request);
 
       if (!userId) {
         return reply.code(401).send({
@@ -158,7 +153,7 @@ export async function organizationRoutes(
       }>,
       reply: FastifyReply,
     ) => {
-      const userId = getAuthenticatedUserId(request);
+      const userId = await getAuthenticatedUserId(request);
 
       if (!userId) {
         return reply.code(401).send({
@@ -212,7 +207,7 @@ export async function organizationRoutes(
       }>,
       reply: FastifyReply,
     ) => {
-      const userId = getAuthenticatedUserId(request);
+      const userId = await getAuthenticatedUserId(request);
 
       if (!userId) {
         return reply.code(401).send({

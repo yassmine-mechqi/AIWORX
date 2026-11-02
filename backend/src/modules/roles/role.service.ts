@@ -350,41 +350,80 @@ if (!users[0]) {
 throw new Error("USER_NOT_FOUND");
 }
 
-const assignments = await sql<RoleAssignmentRow[]>`
-  INSERT INTO public."roleAssignment" (
-    id,
-    "userId",
-    "roleId",
-    "organizationId",
-    "createdById",
-    "isActive",
-    "createdAt",
-    "updatedAt"
-  )
-  VALUES (
-    gen_random_uuid(),
-    ${userId},
-    ${roleId},
-    ${organizationId},
-    ${createdById},
-    true,
-    NOW(),
-    NOW()
-  )
-  ON CONFLICT ("userId", "roleId", "organizationId")
-  DO UPDATE SET
-    "isActive" = true,
-    "updatedAt" = NOW()
-  RETURNING
-    id,
-    "userId",
-    "roleId",
-    "organizationId",
-    "createdById",
-    "isActive",
-    "createdAt",
-    "updatedAt"
-`;
+let assignments: RoleAssignmentRow[];
+
+if (organizationId === null) {
+  assignments = await sql<RoleAssignmentRow[]>`
+    INSERT INTO public."roleAssignment" (
+      id,
+      "userId",
+      "roleId",
+      "organizationId",
+      "createdById",
+      "isActive",
+      "createdAt",
+      "updatedAt"
+    )
+    VALUES (
+      gen_random_uuid(),
+      ${userId},
+      ${roleId},
+      NULL,
+      ${createdById},
+      true,
+      NOW(),
+      NOW()
+    )
+    ON CONFLICT ("userId", "roleId")
+      WHERE "organizationId" IS NULL AND "isActive" = true
+    DO UPDATE SET "updatedAt" = NOW()
+    RETURNING
+      id,
+      "userId",
+      "roleId",
+      "organizationId",
+      "createdById",
+      "isActive",
+      "createdAt",
+      "updatedAt"
+  `;
+} else {
+  assignments = await sql<RoleAssignmentRow[]>`
+    INSERT INTO public."roleAssignment" (
+      id,
+      "userId",
+      "roleId",
+      "organizationId",
+      "createdById",
+      "isActive",
+      "createdAt",
+      "updatedAt"
+    )
+    VALUES (
+      gen_random_uuid(),
+      ${userId},
+      ${roleId},
+      ${organizationId},
+      ${createdById},
+      true,
+      NOW(),
+      NOW()
+    )
+    ON CONFLICT ("userId", "roleId", "organizationId")
+    DO UPDATE SET
+      "isActive" = true,
+      "updatedAt" = NOW()
+    RETURNING
+      id,
+      "userId",
+      "roleId",
+      "organizationId",
+      "createdById",
+      "isActive",
+      "createdAt",
+      "updatedAt"
+  `;
+}
 
 const assignment = assignments[0];
 
@@ -415,6 +454,44 @@ const roles = await sql<RoleRow[]>`     SELECT
 return roles.map(mapRole);
 }
 
+export async function hasPlatformAdministratorRole(
+userId: string,
+): Promise<boolean> {
+const assignments = await sql<{ allowed: boolean }[]>`
+  SELECT EXISTS (
+    SELECT 1
+    FROM public."roleAssignment" ra
+    INNER JOIN public."role" r
+      ON r.id = ra."roleId"
+    WHERE ra."userId" = ${userId}
+      AND ra."isActive" = true
+      AND ra."organizationId" IS NULL
+      AND r.name IN ('ADMIN', 'SUPERADMIN')
+  ) AS allowed
+`;
+
+return assignments[0]?.allowed ?? false;
+}
+
+export async function hasPlatformSuperadministratorRole(
+userId: string,
+): Promise<boolean> {
+const assignments = await sql<{ allowed: boolean }[]>`
+  SELECT EXISTS (
+    SELECT 1
+    FROM public."roleAssignment" ra
+    INNER JOIN public."role" r
+      ON r.id = ra."roleId"
+    WHERE ra."userId" = ${userId}
+      AND ra."isActive" = true
+      AND ra."organizationId" IS NULL
+      AND r.name = 'SUPERADMIN'
+  ) AS allowed
+`;
+
+return assignments[0]?.allowed ?? false;
+}
+
 export async function getUserPermissions(
 userId: string,
 ): Promise<Permission[]> {
@@ -436,4 +513,30 @@ const permissions = await sql<PermissionRow[]>`     SELECT DISTINCT
   `;
 
 return permissions.map(mapPermission);
+}
+
+export async function hasUserPermission(
+  userId: string,
+  permissionCode: string,
+  organizationId: string | null,
+): Promise<boolean> {
+  const rows = await sql<{ allowed: boolean }[]>`
+    SELECT EXISTS (
+      SELECT 1
+      FROM public."roleAssignment" ra
+      INNER JOIN public."rolePermission" rp
+        ON rp."roleId" = ra."roleId"
+      INNER JOIN public."permission" p
+        ON p.id = rp."permissionId"
+      WHERE ra."userId" = ${userId}
+        AND ra."isActive" = true
+        AND p.code = ${permissionCode}
+        AND (
+          ra."organizationId" IS NULL
+          OR ra."organizationId" = ${organizationId}
+        )
+    ) AS allowed
+  `;
+
+  return rows[0]?.allowed ?? false;
 }
